@@ -1,0 +1,51 @@
+<link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,900' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+
+
+<style>
+h1 {
+	color: #0CA5B0;
+	font-family: 'Quicksand';
+	font-size: 52px;
+	font-weight: 400;
+	line-height: 60px;
+	letter-spacing: -4px;
+	margin-bottom: 36px;
+}
+
+p {
+	color: #4E3F30;
+	font-family: 'Lato';
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 36px;
+	margin-bottom: 36px;
+	text-indent: 36px;
+}
+
+a {
+	color: #0CA5B0;	border-bottom: 1px solid #0CA5B0;
+	font-style: italic;
+	text-decoration: none;
+}
+
+a:hover {
+	border-bottom: 1px solid #4E3F30;
+	color: #4E3F30;
+}
+</style>
+
+
+<h1>Encuestas abiertas</h1>
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
