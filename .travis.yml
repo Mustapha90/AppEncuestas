@@ -8,4 +8,4 @@ install:
  - pip install Django
 
 script:
- - python manage.py test
+ - python mysite/manage.py test
